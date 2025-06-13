@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; font-family: 'Segoe UI', sans-serif; }
+    body {
+      background-image: url('Coffee.png.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 60px;
+    }
+    .form-box { color: white; }
+    h2 { font-size: 28px; font-weight: bold; margin-bottom: 20px; }
+    input[type="text"] {
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: none;
+      width: 250px;
+      background: linear-gradient(90deg, #e0dede, #c2bfbf);
+      color: #000;
+      font-size: 16px;
+      margin-bottom: 20px;
+      display: block;
+    }
+    input::placeholder { color: #555; }
+    button {
+      width: 130px;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: white;
+      border: none;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background-color: #ddd; }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>SIGNUP</h2>
+    <input type="text" placeholder="Mobile Number" />
+    <button onclick="window.location.href='otp.html'">SEND OTP</button>
+  </div>
+</body>
+</html>

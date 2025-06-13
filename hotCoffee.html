@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Menu</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #3e2c23;
+        background-image: url("background.jpg");
+        margin: 0;
+        padding: 20px;
+        position: relative;
+      }
+
+      h1 {
+        color: white;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .prev-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: none;
+        border-radius: 50%;
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 100;
+      }
+
+      .prev-btn:hover {
+        background-color: #fff;
+      }
+
+      .menu-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 1100px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .menu {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 150px;
+        width: 100%;
+      }
+
+      .item {
+        background-color: #fff8f0;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .item:hover {
+        transform: scale(1.05);
+      }
+
+      .item img {
+        width: 100%;
+        height: 350px;
+        aspect-ratio: 2 / 1.5;
+        object-fit: cover;
+      }
+
+      .item h3 {
+        margin: 10px 0 5px;
+      }
+
+      .back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: #d3d3d3;
+        border: none;
+        padding: 8px 16px;
+        font-size: 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      
+      .item p {
+        margin: 0 0 10px;
+      }
+
+      .next-btn {
+        position: absolute;
+        right: -50px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.8);
+        border: none;
+        border-radius: 50%;
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+      }
+
+      .next-btn:hover {
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Coffee Menu</h1>
+
+ <button class="back-button" onclick="history.back()">← Back</button>
+    <div class="menu-wrapper">
+      <div class="menu" id="menu"></div>
+      <button class="next-btn" onclick="nextPage()">&#8250;</button>
+    </div>
+
+    <script>
+      const menuItems = [
+        {
+          name: "Cholcolate",
+          price: "RM 7.00",
+          img: "pic7.jpg",
+          page: "chocolate.html",
+        },
+        {
+          name: "Hokkaido Milk Tea",
+          price: "RM 7.00",
+          img: "pic8.jpg",
+          page: "hokkaidomilktea.html",
+        },
+        {
+          name: "Latte",
+          price: "RM 7.00",
+          img: "pic9.jpg",
+          page: "latte.html",
+        },
+        {
+          name: "Milk Tea Espresso",
+          price: "RM 8.00",
+          img: "pic10.jpg",
+          page: "milkteaexpresso.html",
+        },
+        {
+          name: "Americano",
+          price: "RM 6.00",
+          img: "pic11.jpg",
+          page: "americano.html",
+        },
+        {
+          name: "Green Tea Espresso",
+          price: "RM 8.00",
+          img: "pic12.jpg",
+          page: "greenteaexpresso.html",
+        },
+       
+      ];
+
+      let currentPage = 0;
+      const itemsPerPage = 6;
+      const menu = document.getElementById("menu");
+
+      function displayItems() {
+        menu.innerHTML = "";
+        const start = currentPage * itemsPerPage;
+        const end = start + itemsPerPage;
+        const itemsToShow = menuItems.slice(start, end);
+
+        for (const item of itemsToShow) {
+          const div = document.createElement("div");
+          div.className = "item";
+          div.onclick = () => openPage(item.page);
+          div.innerHTML = `
+          <img src="${item.img}" alt="${item.name}">
+          <h3>${item.name}</h3>
+          <p>${item.price}</p>
+        `;
+          menu.appendChild(div);
+        }
+      }
+
+      function nextPage() {
+        const totalPages = Math.ceil(menuItems.length / itemsPerPage);
+        if (currentPage < totalPages - 1) {
+          currentPage++;
+          displayItems();
+        }
+      }
+
+      function prevPage() {
+        if (currentPage > 0) {
+          currentPage--;
+          displayItems();
+        }
+      }
+
+      function openPage(pageUrl) {
+        window.location.href = pageUrl;
+      }
+
+      
+      displayItems();
+    </script>
+  </body>
+</html>

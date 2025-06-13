@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Profile Page</title>
+<style>
+  body, html {
+    margin: 0; padding: 0; height: 100%;
+    font-family: Arial, sans-serif;
+    background: url('bg1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+  }
+  
+  .back-arrow {
+    position: fixed; 
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items:top right ;
+    gap: 8px;
+    font-size: 16px;
+    color: white;
+    user-select: none;
+    z-index: 1000;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+  }
+  .back-arrow svg {
+    stroke: white;
+  }
+  .back-arrow:hover {
+    opacity: 0.8;
+  }
+
+  .profile-container {
+    background-color: rgba(51, 34, 17, 0.85); 
+    padding: 40px;
+    width: 600px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+  }
+  .avatar {
+    width: 200px;
+    height: 280px;
+    background: url('WhatsApp Image 2025-05-30 at 17.36.13_c50c67ad.jpg') no-repeat center center;
+    background-size: contain;
+    border-radius: 8px;
+    margin-right: 40px;
+  }
+  .profile-info {
+    flex: 1;
+  }
+  .profile-info h2 {
+    margin-top: 0;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+  }
+  .info-group {
+    margin-bottom: 30px;
+  }
+  .info-group strong {
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .info-group .value {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .logout-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #B5651D; 
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    user-select: none;
+  }
+  .logout-btn:hover {
+    background-color: #d98c3a;
+    transform: scale(1.05);
+  }
+  .logout-btn:active {
+    transform: scale(0.95);
+  }
+</style>
+</head>
+<body>
+
+
+<div class="back-arrow" onclick="history.back()" aria-label="Go back">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <polyline points="15 18 9 12 15 6"></polyline>
+  </svg>
+  <span>Back</span>
+</div>
+
+
+<div class="profile-container">
+  <div class="avatar"></div>
+  <div class="profile-info">
+    <h2>PROFILE</h2>
+    <div class="info-group">
+      <strong>PHONE NUMBER:</strong>
+      <div class="value">+60 010101010</div>
+    </div>
+    <div class="info-group">
+      <strong>CREDIT POINTS</strong>
+      <div class="value" id="creditPoints">0</div>
+    </div>
+    <div class="info-group">
+      <strong>NAME: JAMIL MD ASIF </strong>
+    </div>
+  </div>
+</div>
+
+
+<button class="logout-btn" onclick="window.location.href='login.html'">Logout</button>
+
+<script>
+  
+  const target = 54;
+  const duration = 500; 
+  const el = document.getElementById('creditPoints');
+  let start = 0;
+  let stepTime = Math.abs(Math.floor(duration / target));
+
+  let counter = setInterval(() => {
+    start++;
+    el.textContent = start;
+    if (start === target) {
+      clearInterval(counter);
+    }
+  }, stepTime);
+</script>
+</body>
+</html>

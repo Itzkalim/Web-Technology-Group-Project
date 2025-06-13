@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Caramel Latte Customizer</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="customization.css" />
+</head>
+<body>
+<div class="container">
+  <div class="left-panel">
+    <img src="pic9.jpg" alt="Latte" />
+    <h2>Latte</h2>
+    <p>RM 7.00</p>
+  </div>
+  <div class="customizer">
+    <div class="control-group" data-item="milk">
+      <h3>Milk</h3>
+      <div class="slider-container">
+        <div class="slider-fill" style="height: 60%;"></div>
+        <div class="slider-labels">
+          100%<br />
+          90%<br />
+          80%<br />
+          70%<br />
+          60%<br />
+          50%<br />
+          40%<br />
+          30%<br />
+          20%<br />
+          10%<br />
+          0%
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="btn minus">−</button>
+        <button class="btn plus">+</button>
+      </div>
+    </div>
+    <div class="control-group" data-item="sugar">
+      <h3>Sugar Syrup</h3>
+      <div class="slider-container">
+        <div class="slider-fill" style="height: 40%;"></div>
+        <div class="slider-labels">
+          100%<br />
+          90%<br />
+          80%<br />
+          70%<br />
+          60%<br />
+          50%<br />
+          40%<br />
+          30%<br />
+          20%<br />
+          10%<br />
+          0%
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="btn minus">−</button>
+        <button class="btn plus">+</button>
+      </div>
+    </div>
+    <div class="control-group" data-item="coffee">
+      <h3>Coffee Bean</h3>
+      <div class="slider-container">
+        <div class="slider-fill" style="height: 70%;"></div>
+        <div class="slider-labels">
+          100%<br />
+          90%<br />
+          80%<br />
+          70%<br />
+          60%<br />
+          50%<br />
+          40%<br />
+          30%<br />
+          20%<br />
+          10%<br />
+          0%
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="btn minus">−</button>
+        <button class="btn plus">+</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-buttons">
+  <button id="backBtn" class="bottom-btn">Back</button>
+  <button id="okBtn" class="bottom-btn ok">OK</button>
+</div>
+
+
+<script src="customization.js"></script>
+
+</body>
+</html>

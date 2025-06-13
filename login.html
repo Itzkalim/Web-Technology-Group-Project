@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coffee Login</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body, html { height: 100%; }
+    body {
+      background-image: url('coffee.png.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: opacity 0.4s ease;
+      opacity: 0;
+    }
+    body.fade-in {
+      opacity: 1;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.4);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 60px;
+    }
+    .login-box { color: #fff; }
+    .login-box h2 { font-weight: bold; margin-bottom: 20px; }
+    .login-box form {
+      display: flex;
+      flex-direction: column;
+    }
+    .login-box input {
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      width: 250px;
+      background-color: rgba(255, 255, 255, 0.7);
+      color: #000;
+      font-size: 16px;
+    }
+    .login-box button {
+      width: 100px;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background-color: #fff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .login-box button:hover { background-color: #ddd; }
+    @media (max-width: 768px) {
+      .overlay { justify-content: center; padding: 20px; }
+      .login-box input { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="login-box">
+      <h2>LOGIN</h2>
+      <form id="loginForm">
+        <input type="text" placeholder="Mobile Number" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">LOGIN</button>
+        <div style="margin-top: 30px;">
+          <p>Don't have an account? <a href="Signup.html">Sign up</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+
+    window.onload = function() {
+      document.body.classList.add('fade-in');
+    };
+   
+    document.getElementById('loginForm').onsubmit = function(event) {
+      event.preventDefault();
+      document.body.classList.remove('fade-in');
+      document.body.style.opacity = 0;
+      setTimeout(function() {
+        window.location.href = 'menu.html';
+      }, 400);
+    };
+  </script>
+</body>
+</html>

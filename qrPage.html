@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scan QR Code</title>
+  <style>
+    body {
+      background-color: #fef6e4;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding-top: 60px;
+      position: relative;
+    }
+
+    img {
+      width: 400px;
+      height: 400px;
+      object-fit: contain;
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 48px;
+      color: #333;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #d3d3d3;
+      border: none;
+      padding: 12px 20px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.7s;
+    }
+
+    .back-button:hover {
+      background-color: #bbb;
+    }
+  </style>
+</head>
+<body>
+  <button class="back-button" onclick="window.history.back();">← Back</button>
+  <img src="qr.jpg" alt="QR Code">
+  <h2>Please scan the QR code</h2>
+</body>
+
+<script>
+  
+  setTimeout(() => {
+    window.location.href = "thankYou.html";
+  }, 4000); 
+</script>
+
+
+</html>
